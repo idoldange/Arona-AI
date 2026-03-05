@@ -1,5 +1,5 @@
 # Arona Bot — Blue Archive AI Assistant
-![Moe Counter](https://count.getloli.com/@AronaAIbyDanteh?name=AronaAIbyDanteh&theme=rule34&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
+![Moe Counter](https://count.getloli.com/@AronaAIbyDanteh?name=AronaAIbyDanteh177013&theme=rule34&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
 
 ## Overview
 Arona is a Discord AI assistant themed around the Shittim Chest OS from *Blue Archive*. Powered by **Google Gemini**, she provides a wide range of capabilities — from general conversation and web research to game data lookups and code execution — while maintaining the helpful personality of Arona from the game.
