@@ -22,7 +22,8 @@ Arona is a Discord AI assistant themed around the Shittim Chest OS from *Blue Ar
 | **Chess** | Play a full game of chess with board image rendering. |
 | **Voice Chat** | Joins voice channels for live AI conversation. |
 | **Scheduling** | Schedule messages or AI-triggered tasks for a future time. |
-
+| **Mood System** | Arona's tone shifts naturally over time based on how she's treated, how long she's been idle, and even hardware temperature. Leave her alone long enough and she'll be in a better mood when you come back. |
+| **Bond System** | Arona remembers how much each user has talked with her and adjusts how she treats them accordingly — from a professional stranger to something noticeably warmer. |
 ---
 
 ## Supported Languages
@@ -71,7 +72,7 @@ Conversation data may be used by Google to improve AI services in accordance wit
 
 | | |
 |---|---|
-| **Version** | Alpha 4.1 |
+| **Version** | Alpha 4.1.2 |
 | **Status** | Closed Source — Active Development |
 | **Developer** | [Danteh](https://github.com/idoldange) — Solo Project |
 | **Bug Reports** | [GitHub Issues](https://github.com/idoldange/Arona-AI/issues) |
