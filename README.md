@@ -24,6 +24,35 @@ Arona is a Discord AI assistant themed around the Shittim Chest OS from *Blue Ar
 | **Scheduling** | Schedule messages or AI-triggered tasks for a future time. |
 | **Mood System** | Arona's tone shifts naturally over time based on how she's treated, how long she's been idle, and even hardware temperature. Leave her alone long enough and she'll be in a better mood when you come back. |
 | **Bond System** | Arona remembers how much each user has talked with her and adjusts how she treats them accordingly — from a professional stranger to something noticeably warmer. |
+
+---
+
+## Commands
+
+Prefix: `!arona`
+
+### General
+
+| Command | Description |
+|---|---|
+| `!arona help` | Show available commands |
+
+### Utilities
+
+| Command | Description |
+|---|---|
+| `!arona base64 encode <text>` | Encode text to Base64 |
+| `!arona base64 decode <base64>` | Decode a Base64 string |
+
+### Channel Management
+
+By default, Arona only responds when mentioned. Use these commands to set channels where she responds to **every message** automatically.
+
+| Command | Description |
+|---|---|
+| `!arona channel add` | Add the current channel to the auto-respond list |
+| `!arona channel remove` | Remove the current channel from the auto-respond list ||
+
 ---
 
 ## Supported Languages
