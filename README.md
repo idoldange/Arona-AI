@@ -16,6 +16,7 @@ Arona is a Discord AI assistant themed around the Shittim Chest OS from *Blue Ar
 | **Reverse Image Search** | Identifies artwork, characters, or image sources via Google Lens with Yandex as fallback. |
 | **GitHub Integration** | Browse repositories, read files, search code, and inspect directory trees directly in chat. |
 | **Code Execution** | Runs Python scripts and shell commands in isolated Docker containers with file output support. |
+| **Artifact Preview** | Output files (`.html`, `.jsx`, `.md`, `.mermaid`) are automatically accompanied by a live preview link. Clicking it opens the file in a browser-based viewer — no download required. |
 | **Kivotos Database** | Query *Blue Archive* student stats, skills, gear, banners, events, and raids via SchaleDB. |
 | **Song Recognition** | Identifies songs from audio or video URLs using Shazam. |
 | **Weather** | Retrieves real-time weather data for any location worldwide. |
@@ -51,7 +52,7 @@ By default, Arona only responds when mentioned. Use these commands to set channe
 | Command | Description |
 |---|---|
 | `!arona channel add` | Add the current channel to the auto-respond list |
-| `!arona channel remove` | Remove the current channel from the auto-respond list ||
+| `!arona channel remove` | Remove the current channel from the auto-respond list |
 
 ---
 
@@ -101,7 +102,7 @@ Conversation data may be used by Google to improve AI services in accordance wit
 
 | | |
 |---|---|
-| **Version** | Alpha 5.0 |
+| **Version** | Alpha 5.5 |
 | **Status** | Closed Source — Active Development |
 | **Developer** | [Danteh](https://github.com/idoldange) — Solo Project |
 | **Bug Reports** | [GitHub Issues](https://github.com/idoldange/Arona-AI/issues) |
