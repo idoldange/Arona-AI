@@ -1,29 +1,43 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with high design quality. Use when Sensei asks to build websites, landing pages, dashboards, HTML/CSS/JS components, web UIs, or anything visual for the web. Output is a single self-contained .html file sent to Discord — Sensei downloads and opens it in browser.
+description: Create distinctive, production-grade frontend interfaces with high design quality. Use when Sensei asks to build websites, landing pages, dashboards, HTML/CSS/JS components, web UIs, or anything visual for the web. Output is a .html or .jsx file sent to Discord — a live preview link is automatically appended to the message.
 ---
 
 This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.
 
 ## Delivery Model (Arona-specific)
 
-Output is always a **single self-contained `.html` file** — all CSS and JS inline, no external dependencies except CDN imports. Write to `OUTPUT_DIR` and set `send_output: "true"` so it's sent to Discord automatically. Sensei downloads and opens it locally in their browser.
+Output is a **`.html`** or **`.jsx`** file written to `OUTPUT_DIR`, sent to Discord via `send_output: "true"`. A live preview link is automatically appended — Sensei can click it to view instantly in browser.
 
+**Choose format based on complexity:**
+- **`.html`** — vanilla HTML/CSS/JS. Best for landing pages, static layouts, simple interactivity.
+- **`.jsx`** — React component with hooks. Best for dashboards, interactive UIs, stateful apps.
+
+### HTML output
 ```python
 # page.html
 import os
-
 OUTPUT_DIR = os.environ.get("OUTPUT_DIR", "./output")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-
-html = """<!DOCTYPE html>
-<html lang="en">
-<!-- ... all CSS/JS inline ... -->
-</html>"""
-
+html = """<!DOCTYPE html>..."""
 with open(os.path.join(OUTPUT_DIR, "page.html"), "w", encoding="utf-8") as f:
     f.write(html)
-print("Done.")
+```
+
+### JSX output
+```python
+# app.jsx
+import os
+OUTPUT_DIR = os.environ.get("OUTPUT_DIR", "./output")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+jsx = """
+import { useState } from "react";
+export default function App() {
+  return <div>Hello</div>;
+}
+"""
+with open(os.path.join(OUTPUT_DIR, "app.jsx"), "w", encoding="utf-8") as f:
+    f.write(jsx)
 ```
 
 Run via: `run_code(action="run_code", code=<above>, send_output="true")`
@@ -54,9 +68,10 @@ Before writing a single line of code, commit to a **BOLD aesthetic direction**:
 
 ---
 
-## Allowed CDN Imports (self-contained HTML)
+## Allowed CDN Imports
 
-These load from CDN and work offline once cached:
+### For `.html` (self-contained)
+For `.html`: use vanilla HTML/CSS/JS or lightweight CDN libs — no React.
 
 ```html
 <!-- Fonts (Google Fonts) -->
@@ -76,12 +91,21 @@ These load from CDN and work offline once cached:
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 ```
 
-No React, no Tailwind CDN (too large) — use vanilla HTML/CSS/JS or lightweight libs.
+### For `.jsx`
+For `.jsx`: React 18 + hooks available. Use Tailwind utility classes for styling (pre-loaded in viewer). Available libraries: `recharts`, `lucide-react`, `lodash`, `d3`, `mathjs`.
+
+```jsx
+import { useState, useEffect, useRef } from "react";
+import { LineChart, XAxis, YAxis, Tooltip, Line } from "recharts";
+import { Camera } from "lucide-react";
+import _ from "lodash";
+```
 
 ---
 
 ## Starter Template
 
+### HTML
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -135,18 +159,40 @@ No React, no Tailwind CDN (too large) — use vanilla HTML/CSS/JS or lightweight
 </html>
 ```
 
+### JSX
+```jsx
+import { useState } from "react";
+
+export default function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div className="min-h-screen bg-gray-950 text-white flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-4">Title</h1>
+        <button
+          onClick={() => setCount(c => c + 1)}
+          className="px-6 py-2 bg-violet-600 rounded-lg hover:bg-violet-500 transition"
+        >
+          Count: {count}
+        </button>
+      </div>
+    </div>
+  );
+}
+```
+
 ---
 
 ## Quality Checklist (before sending)
 
 - [ ] Fonts load from Google Fonts CDN
-- [ ] All CSS inline (no external `.css` files)
-- [ ] All JS inline or from CDN (no local `.js` files)
-- [ ] Works when opened directly from filesystem (`file://`)
+- [ ] **HTML**: All CSS/JS inline or from CDN. Works from `file://`.
+- [ ] **JSX**: Uses only available libraries. Default export is the root component. No required props.
 - [ ] No broken images (use CSS shapes/gradients, or data URIs)
 - [ ] Responsive (`viewport` meta tag, fluid widths)
 - [ ] Animations feel intentional — not scattered
-- [ ] Color palette is cohesive and defined in `:root` variables
+- [ ] Color palette is cohesive and defined in `:root` variables (HTML) or Tailwind classes (JSX)
 
 ---
 
