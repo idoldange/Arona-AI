@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artifacts</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: #111110; font-family: 'JetBrains Mono', monospace; }
+
+  #toolbar {
+    position: fixed; top: 0; left: 0; right: 0; height: 40px;
+    background: #1a1917; border-bottom: 1px solid #272522;
+    display: flex; align-items: center; gap: 8px; padding: 0 12px; z-index: 100;
+  }
+  .logo { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; color: #605d58; }
+  .sep { width: 1px; height: 16px; background: #272522; }
+  .label { font-size: 11px; color: #605d58; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 500px; }
+  .spacer { flex: 1; }
+  .icon-btn {
+    width: 26px; height: 26px; border: 1px solid #272522; border-radius: 5px;
+    background: none; color: #605d58; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; font-size: 12px;
+    text-decoration: none; transition: all 0.12s;
+  }
+  .icon-btn:hover { color: #e8e5df; border-color: #605d58; }
+
+  #frame-wrap { position: fixed; top: 40px; left: 0; right: 0; bottom: 0; }
+  iframe { width: 100%; height: 100%; border: none; background: #fff; }
+
+  #status {
+    position: fixed; inset: 40px 0 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: #605d58;
+  }
+  #status.hidden { display: none; }
+  #status.error { color: #c94040; }
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <span class="logo">SCHALE</span>
+  <div class="sep"></div>
+  <span class="label" id="url-label"></span>
+  <div class="spacer"></div>
+  <a class="icon-btn" id="btn-open" title="Open original" target="_blank">↗</a>
+</div>
+
+<div id="frame-wrap">
+  <iframe id="preview" sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-popups"></iframe>
+</div>
+
+<div id="status">Loading...</div>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const url = params.get('url');
+  const status = document.getElementById('status');
+  const frame = document.getElementById('preview');
+
+  if (!url) {
+    status.textContent = 'No ?url= parameter provided.';
+    status.classList.add('error');
+  } else {
+    const filename = decodeURIComponent(url).split('?')[0].split('/').pop();
+    document.getElementById('url-label').textContent = filename;
+    document.getElementById('btn-open').href = url;
+
+    // Discord CDN cho phép CORS fetch trực tiếp — chỉ block iframe src
+    fetch(url)
+      .then(res => {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.text();
+      })
+      .then(html => {
+        frame.srcdoc = html;
+        status.classList.add('hidden');
+      })
+      .catch(err => {
+        status.textContent = 'Failed to load: ' + err.message;
+        status.classList.add('error');
+      });
+  }
+</script>
+</body>
+</html>
