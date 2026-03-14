@@ -13,7 +13,7 @@ Arona is a Discord AI assistant themed around the Shittim Chest OS from *Blue Ar
 | **Contextual Chat** | Long-term memory via RAG and per-user key-value storage. Arona retains Sensei's preferences across sessions. |
 | **Multimodal Input** | Processes image, video, and audio attachments natively. |
 | **Web Search** | Real-time browsing with full-page crawling for up-to-date information. |
-| **Reverse Image Search** | Identifies artwork, characters, or image sources via Google Lens with Yandex as fallback. |
+| **Reverse Image Search** | Identifies image sources via Google Lens with Yandex as fallback. |
 | **GitHub Integration** | Browse repositories, read files, search code, and inspect directory trees directly in chat. |
 | **Code Execution** | Runs Python scripts and shell commands in isolated Docker containers with file output support. |
 | **Artifact Preview** | Output files (`.html`, `.jsx`, `.md`, `.mermaid`) are automatically accompanied by a live preview link. Clicking it opens the file in a browser-based viewer — no download required. |
