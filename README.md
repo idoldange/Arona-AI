@@ -21,8 +21,12 @@ Arona is a Discord AI assistant themed around the Shittim Chest OS from *Blue Ar
 | **Song Recognition** | Identifies songs from audio or video URLs using Shazam. |
 | **Weather** | Retrieves real-time weather data for any location worldwide. |
 | **Chess** | Play a full game of chess with board image rendering. |
-| **Voice Chat** | Joins voice channels for live AI conversation. |
-| **Scheduling** | Schedule messages or AI-triggered tasks for a future time. |
+| **Voice Chat** | Joins voice channels for live AI conversation with real-time audio support. |
+| **Text-to-Speech** | Synthesizes Arona's voice using a custom-trained model. Responses can be delivered as standalone audio messages. |
+| **Scheduling** | Schedule messages or AI-triggered tasks for a future time, with support for recurring intervals (daily, weekly, monthly). |
+| **Gacha Tracker** | Tracks *Blue Archive* pull history, pity counter, and spark progress per user. |
+| **Todo** | Per-channel task list with full CRUD support, displayed as formatted Discord embeds. |
+| **Channel Memory** | Persistent per-channel notes and context automatically injected into Arona's prompt — useful for pinned instructions or shared channel lore. |
 | **Mood System** | Arona's tone shifts naturally over time based on how she's treated, how long she's been idle, and even hardware temperature. Leave her alone long enough and she'll be in a better mood when you come back. |
 | **Bond System** | Arona remembers how much each user has talked with her and adjusts how she treats them accordingly — from a professional stranger to something noticeably warmer. |
 
@@ -95,6 +99,16 @@ Conversation data may be used by Google to improve AI services in accordance wit
 **Official Policies**
 
 [Google Privacy Policy](https://policies.google.com/privacy) · [Gemini Terms of Service](https://support.google.com/gemini/answer/13594961)
+
+---
+
+## References
+
+| Project | Description | Link |
+|---|---|---|
+| **Google Gemini API** | Core AI engine powering Arona's language understanding, multimodal input, and function calling | [ai.google.dev](https://ai.google.dev/gemini-api/docs) |
+| **GPT-SoVITS** | TTS framework used for Arona's voice synthesis | [GitHub](https://github.com/RVC-Boss/GPT-SoVITS) |
+| **Applio** | RVC-based voice conversion platform used for voice chat | [GitHub](https://github.com/IAHispano/Applio) |
 
 ---
 
