@@ -51,12 +51,20 @@ Prefix: `!arona`
 
 ### Channel Management
 
-By default, Arona only responds when mentioned. Use these commands to set channels where she responds to **every message** automatically.
+By default, Arona only responds when mentioned. Use these commands to set channels where she responds to **every message** automatically. These commands require "Manage Channels" permission.
 
 | Command | Description |
 |---|---|
 | `!arona channel add` | Add the current channel to the auto-respond list |
 | `!arona channel remove` | Remove the current channel from the auto-respond list |
+
+### Context Management
+
+This command manage Arona's memory of previous messages in the channel. By default, she reads the last 15 messages for context. Use this to clear that history. This command requires "Manage Channels" permission, or the current channel is a DM.
+
+| Command | Description |
+|---|---|
+| `!arona clear` | Prevent Arona from reading any previous messages in the channel. |
 
 ---
 
