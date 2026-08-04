@@ -125,7 +125,8 @@ Conversation data may be used by Google to improve AI services in accordance wit
 | | |
 |---|---|
 | **Version** | Alpha 5.6 |
-| **License** | Closed Source — Active Development |
+| **License** | MIT License |
+|**Source Code**| [Github Repo](https://github.com/idoldange/arona) |
 | **Developer** | [Dante](https://github.com/idoldange) — Solo Project |
 | **Bug Reports** | [GitHub Issues](https://github.com/idoldange/Arona-AI/issues) |
 
