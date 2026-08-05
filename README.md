@@ -60,11 +60,19 @@ By default, Arona only responds when mentioned. Use these commands to set channe
 
 ### Context Management
 
-This command manage Arona's memory of previous messages in the channel. By default, she reads the last 15 messages for context. Use this to clear that history. This command requires "Manage Channels" permission, or the current channel is a DM.
+This command manage Arona's memory of previous messages in the channel. By default, she reads the last 15 messages for context. Use this to clear that history. This command requires "Manage Messages" permission, or the current channel is a DM.
 
 | Command | Description |
 |---|---|
 | `!arona clear` | Prevent Arona from reading any previous messages in the channel. |
+
+### Data Management
+This command **deletes ALL** data related to you in Arona's database (e.g., saved info, message history, etc.). This action **cannot** be undone.
+
+| Command | Description |
+|---|---|
+| `!arona forgetme` | Delete all data related to your account. |
+| `!arona forgetme confirm` | Confirm data deletion. This action cannot be interrupted or reversed. |
 
 ---
 
