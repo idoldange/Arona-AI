@@ -1,0 +1,41 @@
+name: Auto Update Submodule
+
+on:
+  # Chạy định kỳ tự động lúc 0h00 UTC mỗi ngày (bạn có thể đổi giờ)
+  schedule:
+    - cron: '0 0 * * *'
+
+  # Cho phép bấm nút "Run workflow" thủ công trên giao diện GitHub
+  workflow_dispatch:
+
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repo của bạn kèm theo submodule
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      # 2. Cập nhật submodule source_code/arona lên commit mới nhất từ remote
+      - name: Update submodule
+        run: |
+          git submodule update --remote --merge source_code/arona
+
+      # 3. Kiếm tra và commit nếu có thay đổi
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Kiểm tra xem submodule có commit mới không
+          if git diff --quiet; then
+            echo "Submodule is already up to date."
+          else
+            git add source_code/arona
+            git commit -m "chore: auto-update arona submodule to latest commit"
+            git push
+          fi
