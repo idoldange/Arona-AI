@@ -66,8 +66,19 @@ This command manage Arona's memory of previous messages in the channel. By defau
 |---|---|
 | `!arona clear` | Prevent Arona from reading any previous messages in the channel. |
 
+### API Key Management
+
+Arona includes a free daily message limit. To skip it, bring your own Gemini API key — free to get, no cost to you.
+
+| Command | Description |
+|---|---|
+| `!arona addkey` | Add your own Gemini API key(s) via a form. Multiple keys can be added, and new keys stack with existing ones. |
+| `!arona listkeys` | View your saved keys (only visible to you). |
+| `!arona removekey <index>` | Remove a key by its index from `!arona listkeys`. |
+| `!arona quota` | Check your remaining free daily messages. |
+
 ### Data Management
-This command **deletes ALL** data related to you in Arona's database (e.g., saved info, message history, etc.). This action **cannot** be undone.
+This command **deletes ALL** data related to you in Arona's database (e.g., saved info, message history, API keys, etc.). This action **cannot** be undone.
 
 | Command | Description |
 |---|---|
@@ -111,6 +122,9 @@ Conversation data may be used by Google to improve AI services in accordance wit
 - Personal photos or images containing identifiable individuals
 - Copyrighted artwork, illustrations, or creative works without authorization
 - Private documents or credentials of any kind
+
+**Bring Your Own Key**
+If you use `!arona addkey`, your key is stored encrypted and used only for your own requests. Requests routed through Arona's servers are still subject to Google's standard Gemini API terms. You are responsible for how your key is used.
 
 **Official Policies**
 
