@@ -51,12 +51,14 @@ Prefix: `!arona`
 
 ### Channel Management
 
-By default, Arona only responds when mentioned. Use these commands to set channels where she responds to **every message** automatically. These commands require "Manage Channels" permission.
+By default, Arona only responds when mentioned. Use these commands to set channels where she responds to **every message** automatically, or channels she should ignore entirely. These commands require "Manage Channels" permission.
 
 | Command | Description |
 |---|---|
 | `!arona channel add` | Add the current channel to the auto-respond list |
 | `!arona channel remove` | Remove the current channel from the auto-respond list |
+| `!arona ignoredchannel add [id]` | Make Arona ignore a channel entirely (no responses, no processing). Defaults to the current channel if no ID is given |
+| `!arona ignoredchannel remove [id]` | Stop ignoring a channel. Defaults to the current channel if no ID is given |
 
 ### Context Management
 
