@@ -23,6 +23,10 @@ Arona is a Discord AI assistant themed around the Shittim Chest OS from *Blue Ar
 | **Chess** | Play a full game of chess with board image rendering. |
 | **Voice Chat** | Joins voice channels for live AI conversation with real-time audio support. |
 | **Text-to-Speech** | Synthesizes Arona's voice using a custom-trained model. Responses can be delivered as standalone audio messages. |
+| **Singing Synth** | Arona sings UTAU (`.ust`), OpenUtau (`.ustx`) projects and plays MIDI (`.mid`) with soundfonts, mixing vocals, instruments and extra audio. Attach images/videos to get an `.mp4`. |
+| **Raid Recovery** | One-command cleanup after a server raid: purges spam messages, removes junk channels, restores renamed channels and recreates deleted ones. |
+| **Slash Command** | `/arona` lets you chat with Arona (with up to 10 attachments) anywhere via user install, no server invite needed. |
+| **Account Migration** | Link or unlink Discord accounts so they share the same chat history and saved information. |
 | **Scheduling** | Schedule messages or AI-triggered tasks for a future time, with support for recurring intervals (daily, weekly, monthly). |
 | **Gacha Tracker** | Tracks *Blue Archive* pull history, pity counter, and spark progress per user. |
 | **Todo** | Per-channel task list with full CRUD support, displayed as formatted Discord embeds. |
@@ -41,6 +45,7 @@ Prefix: `!arona`
 | Command | Description |
 |---|---|
 | `!arona help` | Show available commands |
+| `!arona affection` | Show your bond rank with Arona and her current mood (aliases: `!arona bond`, `!arona mood`) |
 
 ### Utilities
 
@@ -67,6 +72,54 @@ This command manage Arona's memory of previous messages in the channel. By defau
 | Command | Description |
 |---|---|
 | `!arona clear` | Prevent Arona from reading any previous messages in the channel. |
+
+### Chess
+
+Play against a local engine or another member. Moves accept UCI or SAN (e.g. `e2e4`, `Nf3`). Each channel can host one game.
+
+| Command | Description |
+|---|---|
+| `!arona chess start [elo] [white\|black]` | Start a game against the engine (default: White) |
+| `!arona chess restart [elo] [white\|black]` | Reset the board, keeping or replacing the elo/color |
+| `!arona chess challenge @user [white\|black]` | Challenge another member to a PvP game |
+| `!arona chess move <move>` | Play a move |
+| `!arona chess board` | Show an interactive click-to-move board |
+| `!arona chess resign` | Resign the current game |
+| `!arona chess stop` | End the current game (engine or PvP) |
+
+### Text-to-Speech
+
+| Command | Description |
+|---|---|
+| `!arona tts <text>` | Arona speaks the text as an audio file (max 1500 characters). Japanese only. Raise or lower pitch with `↑` / `↓` (e.g. `そ↑う`), and switch voice emotion with tags such as `[happy]` or `[shy]`. |
+
+### Singing Synth
+
+Attach one or more `.ust`, `.ustx`, or `.mid`/`.midi` files to `!arona synth`. Multiple files are synthesized as separate tracks and mixed together. Can take several minutes.
+
+| Command / Option | Description |
+|---|---|
+| `!arona synth` | Sing the attached UTAU/OpenUtau project and/or play the attached MIDI |
+| `!arona synth list <word>` | Browse available instruments and soundfonts (e.g. `list violin`) |
+| `transpose=<semitones>` | Shift pitch (default: automatic octave) |
+| `lang=ja\|en` | Lyrics language (default: `ja`) |
+| `temperature`, `top_k`, `voice_center`, `auto_octave` | Fine-tune the vocal synthesis |
+| `sf=<soundfont>[:<instrument>]` | Choose the soundfont/instrument for instrument tracks |
+| `inst_vol=<percent>`, `inst_db=<dB>` | Instrument loudness relative to the vocal |
+| `inst=0` / `vocals=0` | Skip instrument or vocal tracks |
+| `vid_vol=<percent>`, `fade=<sec>`, `img=<sec>` | Controls for images/videos attached to produce an `.mp4` |
+
+### Server Security
+
+| Command | Description |
+|---|---|
+| `!arona raided` | Open the raid recovery panel: choose the time window and optional raider bot ID, then purge spam, remove junk channels and restore channels. Requires the **Administrator** permission; the bot needs `Manage Messages`, `Manage Channels` and `View Audit Log`. |
+
+### Slash Command
+
+| Command | Description |
+|---|---|
+| `/arona <prompt> [attachment1..10]` | Chat with Arona from anywhere (user install) |
 
 ### API Key Management
 
