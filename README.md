@@ -202,7 +202,7 @@ If you use `!arona addkey`, your key is stored encrypted and used only for your 
 | | |
 |---|---|
 | **Version** | Beta(idk) |
-| **License** | MIT License |
+| **License** | AGPL-3.0 |
 |**Source Code**| [Github Repo](https://github.com/idoldange/arona) |
 | **Developer** | [Dante](https://github.com/idoldange) — Solo Project |
 | **Bug Reports** | [GitHub Issues](https://github.com/idoldange/Arona-AI/issues) |
